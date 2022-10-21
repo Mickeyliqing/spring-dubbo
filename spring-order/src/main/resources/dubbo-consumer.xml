@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!--指定当前服务/应用的名字(同样的服务名字相同，不要和别的服务同名)-->
+    <dubbo:application name="spring-order"/>
+    <!--指定注册中心的位置-->
+    <dubbo:registry address="zookeeper://192.168.31.136:2181"/>
+
+    <!--调用远程暴露的服务，生成远程服务代理-->
+    <dubbo:reference id="userService" interface="com.example.springcommon.service.IUserService"/>
+</beans>
